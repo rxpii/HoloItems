@@ -7,12 +7,12 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.Map;
 
 public abstract class ItemAbility {
 
-    private static Map<Player, Map<Class<? extends ItemAbility>, ItemAbility>> INSTANCES = new HashMap<>();
+    private static Map<Player, Map<Class<? extends ItemAbility>, ItemAbility>> INSTANCES = new ConcurrentHashMap<>();
 
     private Player player;
     private ItemStack stack;
@@ -31,7 +31,7 @@ public abstract class ItemAbility {
      */
     public void start() {
         if (!INSTANCES.containsKey(player)) {
-            INSTANCES.put(player, new HashMap<>());
+            INSTANCES.put(player, new ConcurrentHashMap<>());
         }
 
         if (!INSTANCES.get(player).containsKey(this.getClass())) {

@@ -5,6 +5,7 @@ import com.strangeone101.holoitems.items.Items;
 import com.strangeone101.holoitems.listener.AbilityListener;
 import com.strangeone101.holoitems.listener.ItemListener;
 import com.strangeone101.holoitems.listener.LootListener;
+import com.strangeone101.holoitems.listener.PhoenixTotemListener;
 import com.strangeone101.holoitems.util.CIRecipeChoice;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -38,6 +39,7 @@ public final class HoloItemsPlugin extends JavaPlugin {
 
         Bukkit.getPluginManager().registerEvents(new ItemListener(), this);
         Bukkit.getPluginManager().registerEvents(new AbilityListener(), this);
+        Bukkit.getPluginManager().registerEvents(new PhoenixTotemListener(), this);
         Bukkit.getPluginManager().registerEvents(new LootListener(), this);
 
         Items.registerHoloItems();
@@ -113,8 +115,16 @@ public final class HoloItemsPlugin extends JavaPlugin {
         Bukkit.addRecipe(enchantedSandRecipe);
         recipes.put(new NamespacedKey(this, "enchanted_sand"), enchantedSandRecipe);
 
-
-
+        ItemStack phoenixTotem = Items.PHOENIX_TOTEM.buildStack(null);
+        ShapedRecipe phoenixTotemRecipe = new ShapedRecipe(new NamespacedKey(this, "phoenix_totem"), phoenixTotem);
+        phoenixTotemRecipe.shape(" C ", "CTC", " C ");
+        phoenixTotemRecipe.setIngredient('C', Material.FIRE_CHARGE);
+        phoenixTotemRecipe.setIngredient('T', Material.TOTEM_OF_UNDYING);
+        if (Bukkit.getRecipe(new NamespacedKey(this, "phoenix_totem")) != null) {
+            Bukkit.removeRecipe(new NamespacedKey(this, "phoenix_totem"));
+        }
+        Bukkit.addRecipe(phoenixTotemRecipe);
+        recipes.put(new NamespacedKey(this, "phoenix_totem"), phoenixTotemRecipe);
     }
 
     public static Keys getKeys() {

@@ -9,6 +9,7 @@ public class Items {
 
     public static RushiaShield RUSHIA_SHIELD;
     public static BerryTrident BERRY_TRIDENT;
+    public static PhoenixTotem PHOENIX_TOTEM;
     public static CustomItem ETHERREAL_ESSENSE;
     public static CustomItem OTHERWORLDLY_ADHESIVE;
     public static CustomItem NETHER_DIAMOND;
@@ -18,6 +19,7 @@ public class Items {
 
         RUSHIA_SHIELD = new RushiaShield();
         BERRY_TRIDENT = new BerryTrident();
+        PHOENIX_TOTEM = new PhoenixTotem();
         ETHERREAL_ESSENSE = new CustomItem("etherreal_essense", Material.PURPLE_DYE)
                 .setDisplayName(ChatColor.LIGHT_PURPLE + "Etherreal Essense")
                 .addLore(ChatColor.GRAY + "Mysterious...? What use could it have?");
@@ -33,6 +35,7 @@ public class Items {
 
         CustomItemRegistry.register(RUSHIA_SHIELD);
         CustomItemRegistry.register(BERRY_TRIDENT);
+        CustomItemRegistry.register(PHOENIX_TOTEM);
         CustomItemRegistry.registerBlankId(); //Leave this one for thrown berry tridents
         CustomItemRegistry.register(ETHERREAL_ESSENSE);
         CustomItemRegistry.register(OTHERWORLDLY_ADHESIVE);

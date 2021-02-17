@@ -32,4 +32,14 @@ public class Keys {
     /** The key for the types of mobs. Should be <strong>INT</strong> */
     public final NamespacedKey BERRY_TRIDENT_THROWN = new NamespacedKey(HoloItemsPlugin.INSTANCE, "berry_trident");
 
+    //Phoenix Totem
+
+    /** The key for the current charge on the totem.
+     * Should be <strong>INT</strong> */
+    public final NamespacedKey PHOENIX_TOTEM_CHARGE =
+        new NamespacedKey(HoloItemsPlugin.INSTANCE, "phoenix_totem_charge");
+    /** The key for the flag of the current charge state.
+     * Should be <strong>BYTE</strong> */
+    public final NamespacedKey PHOENIX_TOTEM_CHARGE_STATE =
+        new NamespacedKey(HoloItemsPlugin.INSTANCE, "phoenix_totem_charge_state");
 }
